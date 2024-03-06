@@ -53,7 +53,7 @@ _一张在线图片_
 
 ## 视频嵌入测试
 
-### YouuTube视频嵌入
+### YouTube视频嵌入
 
 {% include embed/youtube.html id='9XpBKjPNxTw' %}
 
