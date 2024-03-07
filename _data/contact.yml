@@ -3,16 +3,23 @@
 - type: github
   icon: "fab fa-github"
 
-- type: twitter
-  icon: "fa-brands fa-x-twitter"
+- type: youtube
+  icon: "fa-brands fa-bilibili"
+  url: 'https://youtube.com/channel/UCHw1I3iFex8g36-U1hplFVQ'
+  noblank: true
+
+- type: bilibili
+  icon: "fa-brands fa-youtube"
+  url: 'https://space.bilibili.com/13658364'
+  noblank: true
 
 - type: email
   icon: "fas fa-envelope"
   noblank: true # open link in current tab
 
-- type: rss
-  icon: "fas fa-rss"
-  noblank: true
+#- type: rss
+#  icon: "fas fa-rss"
+#  noblank: true
 # Uncomment and complete the url below to enable more contact options
 #
 # - type: mastodon

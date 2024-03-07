@@ -31,6 +31,9 @@ github:
 twitter:
   username: twitter_username # change to your twitter username
 
+youtube:
+  username: youtube_username # change to your youtube username
+
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
