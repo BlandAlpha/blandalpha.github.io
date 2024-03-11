@@ -7,8 +7,9 @@ math: true
 ---
 
 > 此贴搬运自本人曾经的博客，请读者悉知。
-{: .prompt-warning}
+{: .prompt-info}
 
+[点击前往曾经的博客](https://www.cnblogs.com/canisidea)
 
 ## 一些杂谈（可以不看）
 
@@ -186,37 +187,42 @@ $$ \begin{bmatrix} {\color{Orange} 1}&{\color{Purple} 4}\\{\color{Orange} 2}&{\c
 =x_1\begin{bmatrix} {\color{Orange} 1}\\{\color{Orange} 2}\\{\color{Orange} 3}\end{bmatrix}+
 x_2\begin{bmatrix} {\color{Purple} 4}\\{\color{Purple} 5}\\{\color{Purple} 6}\end{bmatrix} $$
 
->![img](https://pic4.zhimg.com/v2-e283a0e16c5dcde07036a3226bd946a7_b.jpg)
->来源知乎 [矩阵乘法核心思想（1）：列空间](https://zhuanlan.zhihu.com/p/327042762 "矩阵乘法核心思想（1）：列空间")
+> ![img](https://pic4.zhimg.com/v2-e283a0e16c5dcde07036a3226bd946a7_b.jpg)
 
-而在 $x_1\begin{bmatrix} {\color{Orange} 1}\\{\color{Orange} 2}\\{\color{Orange} 3}\end{bmatrix}+x_2\begin{bmatrix} {\color{Purple} 4}\\{\color{Purple} 5}\\{\color{Purple} 6}\end{bmatrix}$ 中，任意的$x_1,x_2$可以与这两个向量组合，张成一个空间。这个空间被称为这两个列向量所**张成（Span）的列空间（Column Space）**。
+> 来源知乎：[矩阵乘法核心思想（1）：列空间](https://zhuanlan.zhihu.com/p/327042762 "矩阵乘法核心思想（1）：列空间")
+
+而在 $$ x_1 \begin{bmatrix} {\color{Orange} 1} \\ {\color{Orange} 2} \\ {\color{Orange} 3} \end{bmatrix}+
+x_2 \begin{bmatrix} {\color{Purple} 4} \\ {\color{Purple} 5} \\ {\color{Purple} 6} \end{bmatrix} $$ 中，任意的 $$x_1,x_2$$ 可以与这两个向量组合，张成一个空间。这个空间被称为这两个列向量所**张成（Span）的列空间（Column Space）**。
 
 因此对应地，我们也有**行空间 (Roll Space)**存在：
 
->![img](https://pic1.zhimg.com/v2-c1ebc9437eed7876e029415faaae8c60_b.jpg)
->来源知乎 [矩阵乘法核心思想（2）：行空间](https://zhuanlan.zhihu.com/p/348551903"矩阵乘法核心思想（2）：行空间")
+> ![img](https://pic1.zhimg.com/v2-c1ebc9437eed7876e029415faaae8c60_b.jpg)
+
+> 来源知乎 [矩阵乘法核心思想（2）：行空间](https://zhuanlan.zhihu.com/p/348551903"矩阵乘法核心思想（2）：行空间")
 
 ---
 
 ### 矩阵的秩常用结论
 
-1. $0\le R_{(A_{m\times n})}\le \min(m,n)$
+1. $$0\le R_{(A_{m\times n})}\le \min(m,n)$$
 
-2. $R_{(A^T)}=R_{(A)}$
+2. $$R_{(A^T)}=R_{(A)}$$
 
-3. $R\begin{bmatrix}A&0\\0&B\end{bmatrix}=R\begin{bmatrix}0&A\\B&0\end{bmatrix}=R_{(A)}+R_{(B)}$
-4. $R\begin{bmatrix}A&0\\C&B\end{bmatrix}\ge R_{(A)}+R_{(B)}$
+3. $$R\begin{bmatrix}A & 0 \\ 0 & B\end{bmatrix}=R\begin{bmatrix}0 & A \\ B & 0 \end{bmatrix} = R_{(A)}+R_{(B)}$$
 
-5. 矩阵乘以可逆矩阵，秩不变。如：$R_{(B^{-1}AB)}=R_{(A)}$
+4. $$R\begin{bmatrix}A&0\\C&B\end{bmatrix}\ge R_{(A)}+R_{(B)}$$
 
-6. $R_{(A\pm B)}=R_{(A)}+R_{(B)}$
+5. 矩阵乘以可逆矩阵，秩不变。如：$$R_{(B^{-1}AB)}=R_{(A)}$$
+
+6. $$R_{(A\pm B)}=R_{(A)}+R_{(B)}$$
 
 7. **重要性质！**（西尔维斯特不等式）
-若$A$为$m\times n$矩阵,$B$为$n\times l$矩阵（$A,B$矩阵可以相乘），则：$R_{(A)}+R_{(B)}-n\le R_{(AB)}\le \min(R_{(A)},R_{(B)})$
+若 $A$ 为 $m\times n$ 矩阵, $B$ 为 $n\times l$ 矩阵（ $A,B$ 矩阵可以相乘），则：$R_{(A)}+R_{(B)}-n\le R_{(AB)}\le \min(R_{(A)},R_{(B)})$
+
 >证明：（证明过程较重要）
-设置一个矩阵 $\begin{bmatrix}A&0\\E_n&B\end{bmatrix}$ ；
+设置一个矩阵：$$\begin{bmatrix}A&0\\E_n&B\end{bmatrix}$$
 可以知道经过初等变换，这个矩阵可以把左上角和右下角变为0：
-$$ \begin{bmatrix}E_m&-A\\0&E_n\end{bmatrix}\begin{bmatrix}A&0\\E_n&B\end{bmatrix}\begin{bmatrix}E_n&-B\\0&E_l\end{bmatrix}
+>$$ \begin{bmatrix}E_m&-A\\0&E_n\end{bmatrix}\begin{bmatrix}A&0\\E_n&B\end{bmatrix}\begin{bmatrix}E_n&-B\\0&E_l\end{bmatrix}
 =\begin{bmatrix}0&-AB\\E_n&0\end{bmatrix} $$
 
 *未完待续（也不会更了）*
