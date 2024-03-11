@@ -191,7 +191,7 @@ x_2\begin{bmatrix} {\color{Purple} 4}\\{\color{Purple} 5}\\{\color{Purple} 6}\en
 
 > 来源知乎：[矩阵乘法核心思想（1）：列空间](https://zhuanlan.zhihu.com/p/327042762 "矩阵乘法核心思想（1）：列空间")
 
-而在 $x_1 \begin{bmatrix} {\color{Orange} 1} \\ {\color{Orange} 2} \\ {\color{Orange} 3} \end{bmatrix}+x_2 \begin{bmatrix} {\color{Purple} 4} \\ {\color{Purple} 5} \\ {\color{Purple} 6} \end{bmatrix}$ 中，任意的 $$x_1,x_2$$ 可以与这两个向量组合，张成一个空间。这个空间被称为这两个列向量所**张成（Span）的列空间（Column Space）**。
+而在 $$x_1 \begin{bmatrix} {\color{Orange} 1} \\ {\color{Orange} 2} \\ {\color{Orange} 3} \end{bmatrix}+x_2 \begin{bmatrix} {\color{Purple} 4} \\ {\color{Purple} 5} \\ {\color{Purple} 6} \end{bmatrix}$$ 中，任意的 $$x_1,x_2$$ 可以与这两个向量组合，张成一个空间。这个空间被称为这两个列向量所**张成（Span）的列空间（Column Space）**。
 
 因此对应地，我们也有**行空间 (Roll Space)**存在：
 
