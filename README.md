@@ -4,7 +4,7 @@
 
 >*Last edited on 2024/03/07.*
 
-欢迎来到我的个人网页: [Canis - Webpage](https://blandalpha.github.io/)
+欢迎来到我的个人网页: [Canis的主页](https://blandalpha.github.io/)
 
 ![ScreenShot](assets/screenshot.png "ScreenShot")
 

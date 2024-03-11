@@ -9,9 +9,6 @@ image:
    alt: 封面图
 ---
 
->TODO: 更改英文字体到Rubik
-{: .prompt-info}
-
 尝试将这个页面发布到Github pages上去……上一个模板部署失败了，这次祝我好运！
 
 ## 代码渲染测试
