@@ -2,7 +2,7 @@
 title: 向量的线性相关、矩阵的秩总结
 author: guoao
 category: [搬运]
-tags: [线性代数, 矩阵, 秩, 线性相关]
+tags: [数学, 线性代数, 矩阵, 秩, 线性相关]
 math: true
 ---
 
