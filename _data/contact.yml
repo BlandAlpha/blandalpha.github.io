@@ -4,12 +4,12 @@
   icon: "fab fa-github"
 
 - type: youtube
-  icon: "fa-brands fa-bilibili"
+  icon: "fa-brands fa-youtube"
   url: 'https://youtube.com/channel/UCHw1I3iFex8g36-U1hplFVQ'
   noblank: true
 
 - type: bilibili
-  icon: "fa-brands fa-youtube"
+  icon: "fa-brands fa-bilibili"
   url: 'https://space.bilibili.com/13658364'
   noblank: true
 
