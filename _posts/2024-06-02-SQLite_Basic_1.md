@@ -51,7 +51,7 @@ CREATE TABLE userinfo (username, password);
 - `username`
 - `password`
 
-> - `SQL` 和 `SQLite` 关键字大小写都不敏感。 `CREATE` 与 `create` 同样有效。但大写有助于区分关键字与表格名称，增加可读性。
+> `SQL` 和 `SQLite` 关键字大小写都不敏感。 `CREATE` 与 `create` 同样有效。但大写有助于区分关键字与表格名称，增加可读性。
 {: .prompt-tip}
 
 ## 数据表操作
