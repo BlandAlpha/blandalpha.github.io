@@ -88,7 +88,7 @@ WHERE username = 'user1';
 #### 清空表
 
 ```sql
-DDELETE FROM userinfo;
+DELETE FROM userinfo;
 ```
 
 这条语句会清空整个 `userinfo` 表。
