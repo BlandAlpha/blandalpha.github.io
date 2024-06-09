@@ -202,12 +202,12 @@ Window{
 TypeError: Property 'func' of MyObject (0x...) is not a function
 ```
 
-解决方法也很简单，直接在 `myobject.h` 文件中，在 `func` 的声明前添加一句宏 `Q_INVOKEABLE`：
+解决方法也很简单，直接在 `myobject.h` 文件中，在 `func` 的声明前添加一句宏 `Q_INVOKABLE`：
 
 ```cpp
 public:
     // ...
-    Q_INVOKEABLE void func();
+    Q_INVOKABLE void func();
 ```
 
 加上这个宏以后，当前这个函数就能被 QML 端访问了，但前提是该**对象已经被注册过了**。

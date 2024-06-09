@@ -260,15 +260,15 @@ context->setContextProperty("SCREEN_WIDTH", 200);
 如果值比较简单，使用上下文注册完全没问题。而对于比较复杂的类型，则可以使用**注册类型**的方式进行全局调用。有一个重要的函数可以实现这一功能：
 
 ```cpp
-QMLRegisterType<CharacterData>("Characters", versionMajor, versionMinor, "CharacterData");
+qmlRegisterType<CharacterData>("Characters", versionMajor, versionMinor, "CharacterData");
 ```
 
-首先，`QMLRegisterType` 是一个模板函数，尖括号 `<>` 里面的 `CharacterData` 指定了数据类型；
+首先，`qmlRegisterType` 是一个模板函数，尖括号 `<>` 里面的 `CharacterData` 指定了数据类型；
 
 后面的第一个参数是 QML 文件中导入的文件名称，类似域名；第二个和第三个参数则是主版本号和次版本号。例如：
 
 ```cpp
-QMLRegisterType<CharacterData>("Characters", 1, 0, "CharacterData");
+qmlRegisterType<CharacterData>("Characters", 1, 0, "CharacterData");
 ```
 
 那么此时 QML 的 `import` 这样写：
