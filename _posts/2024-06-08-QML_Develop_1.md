@@ -14,9 +14,9 @@ image:
 
 QML作为Qt开发库中的新兴编程语言，其声明式的架构非常适合有 `HTML` 等设计基础的朋友（比如我）。其更灵活的排版，更强大的组件，更现代化的外观让我产生了兴趣。
 
-苦于没有太多中文教程，因此我将基于上方的QML教程以及个人开发情况做出总结。
+苦于没有太多中文教程，因此我将基于上方的 QML 教程以及个人开发情况做出总结。
 
-本人在文中将使用 Qt6.7 作为基础，着重于开发好看的GUI应用程序，因此会将重点放在如何让你的 *黑框框* 变成 *窗口式程序* 上。
+本人在文中将使用 Qt6.7 作为基础，着重于开发好看的 GUI 应用程序，因此会将重点放在如何让你的 *黑框框* 变成 *窗口式程序* 上。
 
 ## 使用 QML 与 C++ 开发应用是怎么一回事？
 
@@ -104,7 +104,7 @@ int main() {
 
 此时任何QML类型都可以使用该变量，其值为 `200`。
 
-```QML
+```qml
 Window {
     width: SCREEN_WIDTH
     // ...
@@ -117,7 +117,7 @@ Window {
 
 当你使用 `.qml` 文件定义了一个类型，但你希望其可以类似 C++ 的类一样，拥有一些私有 (`private`) 属性，应该怎么操作？
 
-```QML
+```qml
 import QtQuick 2.0
 import QtQuick.Controls 2.5
 
@@ -133,7 +133,7 @@ Rectangle {
 
 解决方案就是使用 `QtObject` :
 
-```QML
+```qml
 Rectangle {
     // width:...
     QtObject {
@@ -147,7 +147,7 @@ Rectangle {
 
 如果你希望向外部提供接口，则可以使用别名 (`alias`)：
 
-```QML
+```qml
 Rectangle {
     // width...
     property alias attr: attributes
@@ -239,7 +239,7 @@ private:
 
 `Q_PROPERTY` 定义了一个*宏*。宏是什么我也不太清楚。但是这一句声明了一个名称 `id` ，之后在 QML 中就可以直接对这个 `id` 进行读写，而不用调用具体的函数。举例如下：
 
-```QML
+```qml
 CharacterData {
     id: 1001
 }
@@ -273,7 +273,7 @@ QMLRegisterType<CharacterData>("Characters", 1, 0, "CharacterData");
 
 那么此时 QML 的 `import` 这样写：
 
-```QML
+```qml
 import Characters 1.0
 ```
 
