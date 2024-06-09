@@ -7,7 +7,7 @@ image:
    path: https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/2f49cf90337827.5e158de3cb6a8.jpg
 ---
 
-> 上一篇：[动手制作QML应用程序 1：QML与C++的交互](_posts/2024-06-08-QML_Develop_1.md)
+> 上一篇：[动手制作QML应用程序 1：QML与C++的交互](https://blandalpha.github.io/posts/QML_Develop_1)
 {: .prompt-info}
 
 QML作为Qt开发库中的新兴编程语言，其声明式的架构非常适合有 HTML 等设计基础的朋友（比如我）。其更灵活的排版，更强大的组件，更现代化的外观让我产生了兴趣。
