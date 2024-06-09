@@ -171,12 +171,130 @@ Window{
 
 ### QML 与 C++ 的交流
 
+#### QML 发送信号绑定到 C++
 
+在开始之前，我们先尝试在 QML 端直接调用一个 C++ 的函数。
 
-#### QML 发送信号到 C++
+##### 如何在 QML 端直接调用一个 C++ 的函数？
 
+假如我们定义了一个类 `MyObject` ，我想在按下按钮的时候直接执行其中的一个函数 `func()` 。如何操作？
 
+目前的 QML 文件如下：
+
+```qml
+Window{
+    // ...
+    Button {
+        onClicked: {
+            // 这里如何调用 MyObject 中的 func() 函数呢？
+        }
+    }
+
+    MyObject {
+        id: myobj
+    }
+}
+```
+
+假如你想直接使用 `myobj.func()` ，那你会遇到一个大大的报错：
+
+```
+TypeError: Property 'func' of MyObject (0x...) is not a function
+```
+
+解决方法也很简单，直接在 `myobject.h` 文件中，在 `func` 的声明前添加一句宏 `Q_INVOKEABLE`：
+
+```cpp
+public:
+    // ...
+    Q_INVOKEABLE void func();
+```
+
+加上这个宏以后，当前这个函数就能被 QML 端访问了，但前提是该**对象已经被注册过了**。
+
+##### 信号和槽的绑定
+
+假如在 QML 端有一个信号：
+
+```qml
+Window {
+    signal qmlSignal(int i, string s)
+
+    Button {
+        onClicked: {
+            qmlSignal(2024, "CanisAlpha")
+        }
+    }
+}
+```
+
+我们希望 C++ 端的 `MyObject` 接收，因此我们可以在 `myobject.h` 中声明一个公共的槽：
+
+```cpp
+public:
+    // ...
+
+public slots:
+    void cppSlots(int i, QString s) {
+        qDebug() << __FUNCTION__ << "  " << i << "  " << s;
+    }
+```
+
+此时 C++ 端就多了一个名为 `cppSlots` 的槽了。他会输出函数名称， `i` 的值， `s` 的值。
+
+那么如何绑定？
+
+第一种方法当然是 `Connections` ：
+
+```qml
+Window {
+    Connections {
+        target: window
+        function onQmlSignal(i, s) {
+            myobj.cppSlot(i, s)
+        }
+    }
+}
+```
+
+另一种方式就是在组件完成创建时使用 `.connect()` 绑定：
+
+```qml
+Window{
+    Component.onCompleted: {
+        qml.Signal.connect(myobj.cppSlot)
+    }
+}
+```
+
+可以发现，两种方法都是一样的，都可以正常输出：
+
+```
+MyObject::cppSlot    2024    "CanisAlpha"
+```
 
 #### C++ 发送信号到 QML
 
+如果按照上面的说法，假如我要使用 `MyObject` 里面的函数，那我一定要创建一个对象吗？答案是否定的。
 
+
+在上一讲中，我们使用 `qmlRegisterType()` 注册了对象，这种方法一定要通过创建对象来定义一个 `Object`，类似于模板。而 QML 还为我们提供了另一个方法： `qmlRegesterSingletonInstance()`。这种方法可以创建一个**全局的单例**。例如：
+
+```cpp
+qmlRegesterSingletonInstance("MyObj", 1, 0, "MyObject", MyObject::getInstance());
+```
+
+> 单例（Singleton）是一种特殊的*对象*，这个对象在你的程序里只有一个。就像你家的大钟，每个房间的人都可以看到它，但整个家里只有这一个钟。
+> 而一般的类就像：
+> 
+> - 你有一种叫做“小汽车”的玩具。
+> - 你告诉所有小朋友：“大家可以来拿这种小汽车玩具。”
+> - 于是，每个小朋友都拿到了自己的小汽车，可以各自玩自己的小汽车。
+>
+> `qmlRegisterType`：就像让每个人都可以拿一个小汽车玩具，每个人都有自己的。
+> `qmlRegisterSingletonInstance`：就像全家人一起分享一个大机器人，大家都用同一个。
+> 
+> 这两种方式提供了不同的“玩具”管理方法，适合不同的场景：如果每个人都需要自己的“玩具”，用`qmlRegisterType`；如果大家需要一起分享一个“玩具”，用`qmlRegisterSingletonInstance`。
+> 
+> *解释来自 ChatGPT-4o ，可能会有误。* 
+{: .prompt-info}
